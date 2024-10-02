@@ -11,7 +11,6 @@ from ai import chat
 import slget
 import time
 import requests
-from openai import OpenAI
 import os
 import random
 import json
