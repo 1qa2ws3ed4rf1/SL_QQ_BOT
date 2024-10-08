@@ -8,6 +8,7 @@ from dotenv import load_dotenv
 load_dotenv()
 aikey = os.getenv("aikey")
 url = os.getenv("aiurl")
+model = os.getenv("model")
 client = OpenAI(
     api_key = aikey, # 在这里将 MOONSHOT_API_KEY 替换为你从 Kimi 开放平台申请的 API Key
     base_url = url,
@@ -107,7 +108,7 @@ def chat(messages,input):
     finish_reason = None
     while finish_reason is None or finish_reason == "tool_calls":
         completion = client.chat.completions.create(
-            model="gpt-4o-mini-chat",
+            model=model,
             messages=messages,
             temperature=0.3,
             tools=tool, 
